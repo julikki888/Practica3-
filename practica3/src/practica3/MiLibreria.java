@@ -44,7 +44,7 @@ public class MiLibreria {
 	 * el propio número, este método os servirá tanto para comprobar si un número es perfecto como para los números amigos.
 	 */
 	
-	public static int SumaDivisores(int num) {
+	private static int SumaDivisores(int num) {
 		int suma=0;
 		
 		for(int i=1;i<=num/2;i++) {
@@ -64,7 +64,7 @@ public class MiLibreria {
 	 * Por ejemplo, son números amigos 6 y 6, 28 y 28, 220 y 284,…
 	 */
 	public static boolean Amigos(int numA,int numB) {		
-		return SumaDivisores(numA)==SumaDivisores(numB);
+		return (SumaDivisores(numA)==numB && SumaDivisores(numB)==numA);
 	}
 	
 	
@@ -83,15 +83,77 @@ public class MiLibreria {
 			num1=aux;
 			}
 		for(int i=2;i<=num2&&check==true;i++) {
-			if(num1%i==0){
-				for(float j=2f;j<=num2;j++) {
-					if(num1/i==num2/j)check=false;
-					}
-				}
-			}		
+			if(num1%i==num2%i && num1%i==0)check=false;
+		}
 		return check;	
 	}
 	
+	/*
+	 * g) Método que calcule la función de Euler. La función de euler es el número de enteros positivos inferiores
+	 * a dicho número y que son primos con él. Por ejemplo, el euler de 6 es 2, ya que los únicos números
+	 * inferiores a él y primos con el son el 1 y el 5; euler(4)=2, euler(8)=4, euler(19)=18, euler(20)=8, …
+	 */
+	
+	public static int Euler(int num) {
+		int suma=1;
+		
+		for(int i=2;i<num;i++) {
+			if(PrimosEntreSi(num, i))++suma;}
+		
+		return suma;
+	}
+	
+	
+	
+	/*
+	 * h) Construir un método que calcule el máximo común divisor (MCD) de dos números a y b de tipo entero.
+	 * 	MCD (a, b) = a si a = b
+	 *	MCD (a, b) = MCD (a-b, b) si a > b
+	 *	MCD (a, b) = MCD (a, b-a) si b > a
+	 */
+	
+	public static int MaximoComunDivisor(int a, int b) {		
+		while(a!=b) {
+			if(a>b)a-=b;
+			else b-=a;
+			}
+		return a;
+	}
+	
+	
+	/*
+	 * i) Hacer otro método que calcule el MCD pero de forma recursiva.
+	 */
+	public static int RecursivoMaximoComunDivisor(int a, int b) {		
+		if(a==b)return a;
+		if(a>b)return RecursivoMaximoComunDivisor(a-b, b);
+		return  RecursivoMaximoComunDivisor(a, b-a);
+	}
+	
+	/*
+	 * j) Escribir dos métodos, uno iterativo y otro recursivo para calcular la serie de Fibonacci para un término n,
+	 * sabiendo que:
+	 * Fib(0)= 1
+	 * Fib(1)= 1
+	 * Fib(N)= Fib(N-1) + Fib(N-2)	
+	 */
+	
+	
+	public static int Fibonaci (int n) {
+		int fib1=1,fib2=1,aux;
+		for(int i=2;i<=n;i++) {
+			aux=fib1;
+			fib1=fib2+aux;
+			fib2=aux;
+		}		
+		return fib1;
+	}
+	
+	public static int RecursivoFibonaci (int n) {
+		int fib1=1,fib2=1,aux;
+		
+		return fib1;
+	}
 	
 	
 	
