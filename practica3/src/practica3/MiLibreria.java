@@ -149,11 +149,38 @@ public class MiLibreria {
 		return fib1;
 	}
 	
+	
 	public static int RecursivoFibonaci (int n) {
-		int fib1=1,fib2=1,aux;
-		
-		return fib1;
+		if(n==1||n==0)return 1;
+		return RecursivoFibonaci(n-1)+RecursivoFibonaci(n-2);
 	}
+	
+	
+	/*
+	 * k) Método recursivo que calcula la potencia de un número A elevado a n, se deben tener en cuenta los
+	 * exponentes negativos.
+	 */
+	
+	public static double RecursivoPotencia (int numA, int n) {
+		if(n>0)return numA*RecursivoPotencia(numA, n-1);
+		if(n==0)return 1;
+		return 1/(numA*RecursivoPotencia(numA,(n*-1)-1));
+	}
+	
+	/*
+	 * l) Método que calcular la suma de la serie de Fibonacci para un término n de forma recursiva.
+	 */
+	
+	public static int SumaRecursivoFibonaci (int n) {
+		int fibn,suma=0;
+		if(n==1||n==0)return 1;
+		for(int i=n;i>=0;i--) {
+			fibn= SumaRecursivoFibonaci(i-1)+SumaRecursivoFibonaci(i-2);
+			suma+=fibn;
+		}
+		return suma;
+	}
+	
 	
 	
 	

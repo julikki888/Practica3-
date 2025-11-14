@@ -11,8 +11,17 @@ public class TestLibreria1 {
 		System.out.println(MiLibreria.Euler(19));
 		
 		System.out.println(MiLibreria.MaximoComunDivisor(18,9));
-
 		
+		System.out.println(MiLibreria.RecursivoFibonaci(5));
+
+		System.out.println(MiLibreria.Fibonaci(5));
+
+		System.out.println(MiLibreria.RecursivoPotencia(2, 4));
+		
+		System.out.println(MiLibreria.RecursivoPotencia(2, -4));
+		
+		System.out.println(MiLibreria.SumaRecursivoFibonaci(3));
+
 	}
 
 }
