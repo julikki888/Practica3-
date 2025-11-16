@@ -172,11 +172,10 @@ public class MiLibreria {
 	 */
 	
 	public static int SumaRecursivoFibonaci (int n) {
-		int fibn,suma=0;
-		if(n==1||n==0)return 1;
+		int suma=0;
+		if(n==0)return 1;
 		for(int i=n;i>=0;i--) {
-			fibn= SumaRecursivoFibonaci(i-1)+SumaRecursivoFibonaci(i-2);
-			suma+=fibn;
+			suma+= Fibonaci(i);
 		}
 		return suma;
 	}
